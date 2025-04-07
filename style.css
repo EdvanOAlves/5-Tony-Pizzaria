@@ -1,7 +1,8 @@
 /*Reset de margens geral*/
 *{
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
 }
 
 /*Reset da formatação de links*/
@@ -13,4 +14,28 @@ a{
 /*Reset da estrutura de listas*/
 ul,ol,li{
     list-style: none;
+}
+
+body{
+    padding: 0px 80px;
+}
+
+header{
+    height: 60px;
+    width: calc(100% - 160px);  /*Por algum motivo o header ultrapassa o body na direita, esse calculo resolve isso*/
+    position: fixed;            /*Para o header acompanhar a página*/
+    top: 60px;                  /*offset pro header não ficar no topo*/
+    background-color: tomato; /*PLACEHOLDER, enquanto não tiver conteúdo*/
+
+}
+
+main{
+    height: 700px; /*Placeholder de tamanho, mudar para 1fr quando possível*/
+    background-color: lightseagreen; /*PLACEHOLDER, enquanto não tiver conteúdo*/
+
+}
+footer{
+    height: 526px;
+    background-color: seagreen; /*PLACEHOLDER, enquanto não tiver conteúdo*/
+
 }
