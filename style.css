@@ -1,13 +1,16 @@
+/*Reset de margens geral*/
 *{
     padding: 0px;
     margin: 0px;
 }
 
+/*Reset da formatação de links*/
 a{
     text-decoration: none;
     color: inherit;
 }
 
+/*Reset da estrutura de listas*/
 ul,ol,li{
     list-style: none;
 }
