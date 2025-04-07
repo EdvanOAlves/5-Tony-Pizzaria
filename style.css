@@ -1,3 +1,5 @@
+/*--------------Resets--------------*/
+
 /*Reset de margens geral*/
 *{
     padding: 0;
@@ -16,26 +18,85 @@ ul,ol,li{
     list-style: none;
 }
 
+
 body{
     padding: 0px 80px;
+    font-family: "Poppins", sans-serif;
 }
 
+/*--------------Valores referência--------------*/
+
+:root{                                  /*Criando valores referência a serem usados em outros campos*/
+    --primary-color: #F07807; 
+    --secundary-color: #FBDDC1;
+    --default-shadow: 0 4px 4px #0004;
+}
+
+/*--------------HEADER--------------*/
 header{
     height: 60px;
-    width: calc(100% - 160px);  /*Por algum motivo o header ultrapassa o body na direita, esse calculo resolve isso*/
-    position: fixed;            /*Para o header acompanhar a página*/
+    width: calc(100% - 160px);  /*Por algum motivo o header ultrapassa o body na direita, essa função de calculo resolve isso*/
+    position: fixed;            /*Para o header acompanhar o scroll da página*/
     top: 60px;                  /*offset pro header não ficar no topo*/
-    background-color: tomato; /*PLACEHOLDER, enquanto não tiver conteúdo*/
+    
+    /*Distribuição dos itens do header*/
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; 
+    align-items: center;
+}
+
+
+/*NavBar*/
+header menu{
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    align-items: center;
+    
+}
+
+header menu li{
+    padding: 3px 7px;
+    
+}
+
+header menu li:hover{
+    background-color: var(--secundary-color);
+    box-shadow: var(--default-shadow);
+    
+    transition: box-shadow 0.5s;
+}
+
+header button{
+    height: 48px;
+    width: 120px;
+    border-radius: 12px;
+    border: none;
+
+    background-color: var(--secundary-color);
+    box-shadow: var(--default-shadow);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    
+    font-weight: 800px;
+    color: var(--primary-color);
+
+
 
 }
+
 
 main{
     height: 700px; /*Placeholder de tamanho, mudar para 1fr quando possível*/
-    background-color: lightseagreen; /*PLACEHOLDER, enquanto não tiver conteúdo*/
+    background-color: lightblue; /*PLACEHOLDER, enquanto não tiver conteúdo*/
 
 }
 footer{
     height: 526px;
-    background-color: seagreen; /*PLACEHOLDER, enquanto não tiver conteúdo*/
+    background-color: pink; /*PLACEHOLDER, enquanto não tiver conteúdo*/
 
 }
