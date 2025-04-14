@@ -1,10 +1,13 @@
+
+/*A RESOLVER*/
+/*Tem alguma coisa no contentInfo, o overflown Hidden ainda nao funciona, resolver depois*/
 /*--------------Resets--------------*/
 
 /*Reset de margens geral*/
 *{
     padding: 0;
     margin: 0;
-    box-sizing: 0;
+    box-sizing: border-box;
 }
 
 /*Reset da formatação de links*/
@@ -20,7 +23,6 @@ ul,ol,li{
 
 
 body{
-    padding: 0px 80px;
     font-family: "Poppins", sans-serif;
 }
 
@@ -29,21 +31,25 @@ body{
 :root{                                  /*Criando valores referência a serem usados em outros campos*/
     --primary-color: #F07807; 
     --secundary-color: #FBDDC1;
+    --neutral-color:#FEF2E7;
     --default-shadow: 0 4px 4px #0004;
+    --default-padding:0px 80px;
 }
 
 /*--------------HEADER--------------*/
 header{
     height: 60px;
-    width: calc(100% - 160px);  /*Por algum motivo o header ultrapassa o body na direita, essa função de calculo resolve isso*/
+    width: 100%;
     position: fixed;            /*Para o header acompanhar o scroll da página*/
     top: 60px;                  /*offset pro header não ficar no topo*/
+    padding: var(--default-padding); /*Margem para o conteúdo*/
     
     /*Distribuição dos itens do header*/
     display: flex;
     justify-content: space-between;
     flex-direction: row; 
     align-items: center;
+    
 }
 
 
@@ -89,14 +95,149 @@ header button{
 
 }
 
+/*--------------MAIN--------------*/
 
-main{
-    height: 700px; /*Placeholder de tamanho, mudar para 1fr quando possível*/
-    background-color: lightblue; /*PLACEHOLDER, enquanto não tiver conteúdo*/
+
+section{
+    height: 100vh;
+    padding: var(--default-padding);
+}
+
+/*Home*/
+.home{
+    background-color: var(--neutral-color);
+    background-image: url(./img/backgroundTriangles.svg);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: contain;
+    
+    
+    display: grid;
+    grid-template-rows:70% 30%;
+}
+
+.hero{
+    display: flex;
+    flex-direction: row;
+    justify-content: space space-between;
+    align-items:end;
+    gap: 450px;
+}
+
+.hero h2{
+    width: 558px;
+    font-size: 4rem;
+    font-weight: 400;
+    margin-bottom: 84px;
+}
+
+.hero span{
+    color: var(--primary-color);
 
 }
+
+.container-pizzas{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+}
+
+.pizza{
+    position: relative;
+    display: flex;
+    border: 12px;
+    position:relative;
+}
+
+.addPizza{
+    height: 40px; 
+    width: 40px;
+    position: absolute;
+    right: -20px;
+    top:-20px;
+
+    border-radius: 12px;
+    border: 4px solid white;
+    
+    font-size: 32px;
+    color: white;
+    
+    display: grid;
+    place-content: center;
+
+
+    background-color: var(--primary-color);
+    
+    opacity: 0;
+    transition: 400ms;
+}
+
+.pizza:hover .addPizza{
+    opacity: 1;
+}
+
+.animacao{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    border-radius: 0 0 12px 12px;
+}
+
+.containerInfo{
+    position: absolute;
+    width: 100%;
+    height: 36px;
+    bottom: -36px;
+    padding: 12px;
+    left: 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #0008;
+    border-radius: 0 0 12px 12px;
+}
+
+.pizza:hover .containerInfo{
+    bottom: 0;
+}
+
+.containerInfo p{ /*O nome da pizza*/
+    font-size: 12px;
+    width: 120px;
+    color: white;
+
+}
+
+.containerInfo span{
+    width: 57px;
+    height:20px;
+    font-size: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 6px;
+    position: absolute;
+    right: 0;
+}
+
+/*Cardapio*/
+.cardapio{
+    background-color: gold;
+}
+/*Servicos*/
+.servicos{
+    background-color: mediumslateblue;
+}
+
+
 footer{
-    height: 526px;
+    height: 576px;
     background-color: pink; /*PLACEHOLDER, enquanto não tiver conteúdo*/
+    
 
 }
