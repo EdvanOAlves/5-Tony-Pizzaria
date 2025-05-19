@@ -1,86 +1,89 @@
 /*--------------Resets--------------*/
 
 /*Reset de margens geral*/
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
 /*Reset da formatação de links*/
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
 
 /*Reset da estrutura de listas*/
-ul,ol,li{
+ul,
+ol,
+li {
     list-style: none;
 }
 
 /*--------------Valores referência--------------*/
 
-:root{                                  /*Criando valores referência a serem usados em outros campos*/
-    --primary-color: #F07807; 
+:root {
+    /*Criando valores referência a serem usados em outros campos*/
+    --primary-color: #F07807;
     --secundary-color: #FBDDC1;
-    --neutral-color:#FEF2E7;
     --default-shadow: 0 4px 4px #0004;
-    --default-padding:0px 80px;
+    --default-padding: 0px 80px;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
 /*--------------BODY--------------*/
-body{
+body {
     font-family: "Poppins", sans-serif;
 }
 
 
 /*--------------HEADER--------------*/
-header{
+header {
     height: 3.75rem;
     width: 100%;
-    position: fixed;            /*Para o header acompanhar o scroll da página*/
-    top: 3.75rem;                  /*offset pro header não ficar no topo*/
-    padding: var(--default-padding); /*Margem para o conteúdo*/
+    position: fixed;
+    /*Para o header acompanhar o scroll da página*/
+    top: 3.75rem;
+    /*offset pro header não ficar no topo*/
+    padding: var(--default-padding);
+    /*Margem para o conteúdo*/
     z-index: 99;
-    
 
-    
+
+
     /*Distribuição dos itens do header*/
     display: flex;
     justify-content: space-between;
-    flex-direction: row; 
     align-items: center;
-    
+
 }
 
 
 /*NavBar*/
-header menu{
+header menu {
     display: flex;
     justify-content: center;
-    gap: 3rem;
     align-items: center;
-    
+    gap: 3rem;
+
     background-color: #FFF5;
 }
 
-header menu li{
+header menu li {
     padding: 3px 7px;
-    
+    transition: 0.5s;
+
 }
 
-header menu li:hover{
+header menu li:hover {
     background-color: var(--secundary-color);
     box-shadow: var(--default-shadow);
-    
-    transition: 0.5s;
 }
 
-header button{
+header button {
     height: 3rem;
     width: 7.5rem;
     border-radius: 0.75rem;
@@ -88,61 +91,56 @@ header button{
 
     background-color: var(--secundary-color);
     box-shadow: var(--default-shadow);
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    
+
     font-weight: 800;
     color: var(--primary-color);
-
-
-
 }
 
 /*--------------MAIN--------------*/
 
 
-section{
+section {
     height: 100vh;
     padding: var(--default-padding);
 }
 
 /*Home*/
-.home{
-    background-color: var(--neutral-color);
+.home {
+    background-color: #FEF2E7;
     background-image: url(./img/backgroundTriangles.svg);
     background-repeat: no-repeat;
     background-position: top right;
     background-size: contain;
-    
-    
+
     display: grid;
-    grid-template-rows:70% 30%;
+    grid-template-rows: 70% 30%;
 }
 
-.hero{
+.hero {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-items:end;
-    gap: 63px;
+    align-items: end;
+    gap: 4rem;
 }
 
-.hero h2{
+.hero h2 {
     width: 35rem;
     font-size: 4rem;
     font-weight: 400;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
-.hero span{
+.hero span {
     color: var(--primary-color);
 
 }
 
-.container-produtos{
+.container-produtos {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -150,40 +148,40 @@ section{
     padding-top: 0.5rem;
 }
 
-.pizza{
+
+.pizza {
     position: relative;
     display: flex;
-    border: 0.75rem;
+    border-radius: 12px;
 }
 
-.addPizza{
-    height: 2.5rem; 
-    width: 2.5rem;
+.addPizza {
     position: absolute;
+    top: -1.25rem;
     right: -1.25rem;
-    top:-1.25rem;
-
+    height: 2.5rem;
+    width: 2.5rem;
+    
+    display: grid;
+    place-content: center;
+    
     border-radius: 0.75rem;
     border: 4px solid white;
     
     font-size: 2rem;
     color: white;
     
-    display: grid;
-    place-content: center;
-
-
     background-color: var(--primary-color);
     
     opacity: 0;
     transition: 400ms;
 }
 
-.pizza:hover .addPizza{
+.pizza:hover .addPizza {
     opacity: 1;
 }
 
-.labelAnimacao{
+.labelAnimacao {
     position: absolute;
     top: 0;
     left: 0;
@@ -193,134 +191,125 @@ section{
     border-radius: 0 0 0.75rem 0.75rem;
 }
 
-.containerInfo{
-    position: absolute;
-    width: 100%;
-    height: 2.25rem;
-    bottom: -2.25rem;
-    padding: 0 0.75rem 0 0.75rem;
-    left: 0;
-    
+.containerInfo {
     display: flex;
     justify-content: space-between;
     align-items: center;
     
+    height: 2.25rem;
+    width: 100%;
+    padding: 0 0.75rem;
+    position: absolute;
+    bottom: -2.25rem;
+    left: 0;
+
+
     background-color: #0008;
     border-radius: 0 0 12px 12px;
-    
+
     transition: .5s;
 }
 
-.pizza:hover .containerInfo{
+.pizza:hover .containerInfo {
     bottom: 0;
 }
 
-.containerInfo p{ /*O nome da pizza*/
-    font-size: 0.75rem;
+.containerInfo p {
+    /*O nome da pizza*/
     width: 8rem;
+    font-size: 0.75rem;
     color: white;
 
 }
 
-.containerInfo span{
+.containerInfo span {
+    display: grid;
+    place-content: center;
+
     width: 3.5rem;
-    height:1.25rem;
+    height: 1.25rem;
     font-size: 0.75rem;
     color: white;
-    place-content: center;
-    text-align: center;
 
-
-    background-color: var(--primary-color);
     border-radius: 6px;
-    position: absolute;
-    right: 0.75rem;
+    background-color: var(--primary-color);
 }
 
 /*Cardapio*/
-.cardapio{
+.cardapio {
     display: flex;
     flex-direction: column;
     background-color: white;
 }
 
-.titulo-secao{
+.titulo-secao {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 1.5rem;
-    padding-top: 2rem;
 }
 
-.opcoes-cardapio{
-    height: 16rem;
-    border-bottom: 2px solid var(--secundary-color);
+.titulo-secao h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.opcoes-cardapio {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    height: 16rem;
+    border-bottom: 2px solid var(--secundary-color);
 
 }
 
-.titulo-secao h3{
-    font-weight: 600;
-    font-size: 2.5rem;
-    color: var(--primary-color);
-}
-
-.titulo-opcoes{
+.titulo-opcoes {
     display: flex;
     justify-content: space-between;
-    font-size: 1.5rem;
     color: var(--primary-color);
 }
 
-.titulo-opcoes h4{
+.titulo-opcoes h4 {
+    font-size: 1.5rem;
     font-weight: 550;
 }
 
-.titulo-opcoes a{
+.titulo-opcoes a {
+    font-size: 1.5rem;
     font-weight: 550;
 }
 
-.opcoes-cardapio.bebida{
-    border:none;
+.opcoes-cardapio.bebida {
+    border: none;
 }
 
 
-.pizza.bebida{
+.pizza.bebida {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    margin-top: 0.75rem;
     padding: 1rem;
     transition: .5s;
-    
+
 }
 
 .pizza.bebida:hover {
     box-shadow: 2px 2px 8px #CCC;
 }
 
-.pizza.bebida .valor{
-    font-size: 1rem;
-    font-weight: 600;
+.pizza.bebida .valor {
     color: var(--primary-color);
     width: 100%;
-    
 }
 
-.pizza.bebida .descricao{
-    font-size: 10px;
+.pizza.bebida .descricao {
+    font-size: .5rem;
 }
-
-
 
 /*Servicos*/
-.servicos{
-    background-color: #FEF8F2;
-    
+.servicos {
     height: auto;
     display: flex;
     flex-direction: column;
@@ -328,95 +317,97 @@ section{
     /*Padding Block para definir o padding para o top e bottom*/
     padding-block: 2rem;
     
+    background-color: #FEF8F2;
 }
 
-.opcoes-servicos{
+.opcoes-servicos {
     display: flex;
     justify-content: space-between;
 }
 
-.servico-card{
+.servico-card {
     width: 25rem;
     height: 32rem;
-    border:4px solid var(--primary-color);
-    border-radius: 24px;
+    border: 4px solid var(--primary-color);
+    border-radius: 1.5rem;
 
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-evenly;
+    align-items: center;
     padding: 2.75rem;
 }
 
-.servico-card img{
+.servico-card img {
     /*Filter é um modo para fazer sombra desconsiderando o alpha channel (transparencia)*/
     filter: drop-shadow(0px 4px 3px #0004);
 }
-.servico-card h4{
-    font-size:43px;
-    font-weight: 500;
+
+.servico-card h4 {
+    font-size: 2.5rem;
     color: var(--primary-color);
+    font-weight: 500;
     text-shadow: var(--default-shadow);
-    text-shadow: #0004;
 }
-.servico-card p{
-    font-size:1.2rem;
+
+.servico-card p {
+    text-align: center;
+    font-size: 1.2rem;
     text-shadow: var(--default-shadow);
 }
 
 
 /*Footer*/
-footer{
+footer {
+    background-color: var(--primary-color);
     height: 526px;
-    background-color: var(--primary-color); /*PLACEHOLDER, enquanto não tiver conteúdo*/
     display: flex;
-    align-items: center;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     color: #FFF;
 }
 
-.contatos-container{
-    display:flex;
-    flex-grow: 1;
+.contatos-container {
     width: 70%;
+    display: flex;
     justify-content: space-between;
+    flex-grow: 1;
+    gap: 2rem;
 }
 
-.contatos-item{
+.contatos-item {
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: flex-start;
-    font-size: 16px;
-    padding-top: 120px;
+    align-items: start;
+    padding-top: 7.5rem;
     gap: 0.7rem;
 }
 
-.contatos-item.logo{
+.contatos-item.logo {
     justify-content: center;
-    padding:0;
+    padding: 0;
 }
 
-.contatos-item h4{
+.contatos-item h4 {
     font-size: 1.5rem;
-    font-weight: 400;
+    font-weight: 500;
 }
 
-.contatos-item menu{
-    display:flex;
-    gap: 12px;
-    flex-direction: column;
-    font-size: 1rem;
-    font-weight:300;
-}
-
-.contatos-item li{
+.contatos-item menu {
     display: flex;
-    gap: 1.5rem;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+    font-weight: 300;
 }
 
-.social a{
+.contatos-item li {
+    display: flex;
+    gap: 1rem;
+}
+
+.social a {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -428,131 +419,138 @@ footer{
 
 }
 
-.social a:hover{
+.social a:hover {
     background-color: var(--secundary-color);
     color: var(--primary-color);
 }
 
-.creditos{
+.creditos {
     height: 72px;
-    border-top: 1.5px white solid;
+    border-top: 1.5px solid var(--secundary-color);
     width: 100%;
     display: grid;
     place-content: center;
     font-size: 0.75rem;
-    font-weight: 200;
+    font-weight: 300;
     font-style: italic;
 }
 
+/*Parei aqui na verificação*/
+
 /*TABLET*/
-@media (max-width:1024px){
-    header{
+@media (max-width:1024px) {
+    header {
         position: absolute;
         background-color: transparent;
         left: 0;
-        top: 2.5rem;
+        top: 3rem;
     }
 
-    header menu{
+    header menu {
         width: 100vw;
         height: 4rem;
         position: fixed;
         left: 0;
         bottom: 0;
         z-index: 99;
-        
-        justify-content: space-around;
+
+        justify-content: space-evenly;
 
         background-color: var(--primary-color);
-        color: white;
+        color: #fff;
 
     }
-    header menu li:hover{
+
+    header menu li:hover {
         color: var(--primary-color);
-
     }
 
-    .home{
-        grid-template-columns: none;
+    .home {
+        grid-template-rows: none;
     }
 
-    .hero{
+    .hero {
         flex-direction: column-reverse;
         align-items: center;
         justify-content: end;
         padding-bottom: 4rem;
     }
 
-    .hero h2{
+    .hero h2 {
         font-weight: 500;
     }
 
-    .home .container-produtos{
+    .home .container-produtos {
         display: none;
     }
 
-    .container-produtos{
+    .container-produtos {
         gap: 2rem;
     }
 
-    .container-produtos .pizza{
+    .container-produtos .pizza {
         width: 100%;
     }
-    .container-produtos img{
+
+    .container-produtos img {
         width: 100%;
     }
 
     .container-produtos .pizza:nth-child(5),
     .container-produtos .pizza:nth-child(4),
-    .container-produtos .pizza:nth-child(3)
-    {
+    .container-produtos .pizza:nth-child(3) {
         display: none;
     }
 
-    .cardapio{
-        justify-content: space-evenly;
+    .cardapio {
+        justify-content: center;
+        gap: 24px;
     }
 
-    .pizza.bebida{
+    .pizza.bebida {
         width: auto;
     }
 
 
-    .opcoes-servicos{
+    .opcoes-servicos {
         flex-direction: column;
-    }
-    
-    .servico-card{
-        flex-wrap: wrap;
-        width: 100%;
-        height: 260px;
         gap: 24px;
     }
 
-    .servico-card p{
+    .servico-card {
+        width: 100%;
+        height: 260px;
+        flex-wrap: wrap;
+    }
+
+    .servico-card p {
         width: 60%;
     }
 
-    .contatos-container{
+    .contatos-container {
+        height: 400px;
         flex-direction: column;
-        height: 282px;
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    .contatos-item{
+    .contatos-item {
         padding: 0;
     }
 
-    .contatos-item.social{
-        align-items: end;
-    }
-
-    .contatos-item:nth-child(2){
+    .contatos-item:nth-child(2) {
         display: none;
     }
 
-    .creditos{
+    .contatos-item.social {
+        align-items: end;
+    }
+
+    .creditos {
         margin-bottom: 4rem;
     }
 }
+
+/*CELULAR*/
+
+@media (max-width: 768px) {}
